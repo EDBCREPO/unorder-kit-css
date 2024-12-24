@@ -15,6 +15,7 @@
 #include "./border.cpp"
 #include "./margin.cpp"
 #include "./button.cpp"
+#include "./toggle.cpp"
 #include "./opacity.cpp"
 #include "./tooltip.cpp"
 #include "./padding.cpp"
@@ -46,6 +47,7 @@ namespace uk {
         app.USE( "header",     header()     );
         app.USE( "border",     border()     );
         app.USE( "button",     button()     );
+        app.USE( "toggle",     toggle()     );
         app.USE( "margin",     margin()     );
         app.USE( "opacity",    opacity()    );
         app.USE( "padding",    padding()    );

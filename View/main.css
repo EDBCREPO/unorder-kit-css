@@ -28,6 +28,7 @@
 <° http://localhost:8000/height °>
 <° http://localhost:8000/header °>
 <° http://localhost:8000/button °>
+<° http://localhost:8000/toggle °>
 <° http://localhost:8000/padding °>
 <° http://localhost:8000/opacity °>
 <° http://localhost:8000/rounded °>
@@ -38,5 +39,9 @@
 <° http://localhost:8000/position °>
 <° http://localhost:8000/background °>
 <° http://localhost:8000/visibility °>
+
+/*────────────────────────────────────────────────────────────────────────────*/
+
+<° ./View/animation.css °>
 
 /*────────────────────────────────────────────────────────────────────────────*/

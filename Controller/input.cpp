@@ -32,7 +32,9 @@ namespace uk {
                     -webkit-appearance: none;
                     vertical-align: middle;
                     display: inline-block;
+                    border-radius: 5px;
                     overflow: hidden;
+                    font-size: 16px;
                     color: inherit;
                     padding: 5px;
                 }
@@ -69,6 +71,8 @@ namespace uk {
 
                 .uk-input:focus { outline: 0; }
 
+                .uk-input[type="date"]{ display: flex !important; }
+
             ));
             
             forEach( color, ptr_t<string_t>({
@@ -77,14 +81,14 @@ namespace uk {
                 "dark"   , "light"    , "neutral"
             })){ cli.write( regex::format( _STRING_(
 
+                .uk-radio-checked-${0}:checked, .uk-checkbox-checked-${0}:checked {
+                    background-color: var(--${0});
+                    border-color: var(--${0});
+                }
+
                 .uk-checkbox-${0}, .uk-radio-${0}, .uk-input-${0} {
                     background-color: rgba( from var(--neutral) r g b / 10% );
                     border: 1px solid var(--neutral);
-                }
-
-                .uk-input-focus-${0}:focus {
-                    background-color: rgba( from var(--${0}) r g b / 10% );
-                    border-color: var(--${0});
                 }
 
                 .uk-input-required-${0}:required { 
@@ -97,8 +101,8 @@ namespace uk {
                     border-color: var(--${0}); 
                 }
 
-                .uk-radio-checked-${0}:checked, .uk-checkbox-checked-${0}:checked {
-                    background-color: var(--${0});
+                .uk-input-focus-${0}:focus {
+                    background-color: rgba( from var(--${0}) r g b / 10% );
                     border-color: var(--${0});
                 }
 

@@ -9,7 +9,7 @@ namespace uk {
 
             cli.write( _STRING_(
 
-                .uk-button:hover  { opacity: 80% !important; }
+                .uk-button:hover  { opacity: 90% !important; }
 
                 .uk-button:active { opacity: 60% !important; }
 

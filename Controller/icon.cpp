@@ -21,7 +21,7 @@ namespace uk {
                     line-height: 1;
                     content: attr(icon);
                     direction: ltr;
-                    font-size: 22px;
+                    font-size: inherit;
                     word-wrap: normal;
                     white-space: nowrap;
                     text-transform: none;
@@ -45,6 +45,26 @@ namespace uk {
                     white-space: nowrap;
                     text-transform: none;
                     display: inline-block;
+                    -webkit-font-smoothing: antialiased;
+                    -webkit-font-feature-settings: 'liga';
+                    letter-spacing: normal; user-select: none;
+                }
+
+                input[type="date"]::after {
+                    vertical-align: -webkit-baseline-middle;
+                    font-family: 'Material Symbols Rounded';
+                    vertical-align: text-bottom;
+                    align-content: center;
+                    font-weight: normal;
+                    font-style: normal;
+                    line-height: 1;
+                    direction: ltr;
+                    font-size: inherit;
+                    word-wrap: normal;
+                    white-space: nowrap;
+                    text-transform: none;
+                    display: inline-block;
+                    content: "edit_calendar";
                     -webkit-font-smoothing: antialiased;
                     -webkit-font-feature-settings: 'liga';
                     letter-spacing: normal; user-select: none;

@@ -23,7 +23,6 @@ namespace uk {
                     border-color: var(--none);
                     align-items: center;
                     text-align: center;
-                    border-radius: 5px;
                     font-weight: 600;
                     cursor: pointer;
                     font-size: 16px;
@@ -44,14 +43,15 @@ namespace uk {
                 { "neutral",   "light" }
             }).data() ){ cli.write( regex::format( _STRING_(
 
-                .uk-selector-${0}>label:has(:checked) { 
-                    background-color: var(--${0});
-                    border: 1px solid var(--none);
-                    color: var(--${1});
+                .uk-selector-active-${0}-outline>label:has(:checked) { 
+                    background-color: rgba( from var(--${0}) r g b / 10% ) !important;
+                    border: 1px solid var(--${0}) !important;
+                    color: var(--${0}) !important;
                 }
-                .uk-selector-${0}>label { 
-                    background-color: var(--${0});
-                    border-color: var(--none);
+                .uk-selector-active-${0}>label:has(:checked) { 
+                    background-color: var(--${0}) !important;
+                    border: 1px solid var(--none) !important;
+                    color: var(--${1}) !important;
                 }
 
                 .uk-selector-${0}-outline>label { 
@@ -65,15 +65,14 @@ namespace uk {
                     color: var(--${1});
                 }
 
-                .uk-selector-active-${0}-outline>label:has(:checked) { 
-                    background-color: rgba( from var(--${0}) r g b / 10% ) !important;
-                    border: 1px solid var(--${0}) !important;
-                    color: var(--${0}) !important;
+                .uk-selector-${0}>label:has(:checked) { 
+                    background-color: var(--${0});
+                    border: 1px solid var(--none);
+                    color: var(--${1});
                 }
-                .uk-selector-active-${0}>label:has(:checked) { 
-                    background-color: var(--${0}) !important;
-                    border: 1px solid var(--none) !important;
-                    color: var(--${1}) !important;
+                .uk-selector-${0}>label { 
+                    background-color: var(--${0});
+                    border-color: var(--none);
                 }
 
             ), color.first, color.second )); }

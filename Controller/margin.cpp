@@ -26,10 +26,10 @@ namespace uk {
                     { "2xsmall", "5px"  },
                     { "xsmall",  "10px" },
                     { "small",   "15px" },
-                    { "medium",  "25px" },
-                    { "large",   "30px" },
-                    { "xlarge",  "35px" },
-                    { "2xlarge", "40px" }
+                    { "medium",  "20px" },
+                    { "large",   "25px" },
+                    { "xlarge",  "30px" },
+                    { "2xlarge", "35px" }
                 }).data() ){
                     cli.write( regex::format( _STRING_ (
                        .uk-child-margin-${0}${2}>:not([class*="uk-margin"]){ margin:${1} !important; } 
@@ -38,6 +38,9 @@ namespace uk {
                 }
 
                 cli.write( regex::format( _STRING_ (
+                    
+                    .uk-child-margin${0}>:not([class*="uk-margin"]){ margin:15px; }
+                    .uk-margin${0}                                 { margin:15px; }
 
                     .uk-margin-remove-bottom${0} { margin-bottom: 0px !important; }
                     .uk-margin-remove-top${0}    { margin-top:    0px !important; }
@@ -60,9 +63,6 @@ namespace uk {
                         margin-top:    0px !important;
                         margin-bottom: 0px !important;
                     }
-                    
-                    .uk-child-margin${0}>:not([class*="uk-margin"]){ margin:20px; }
-                    .uk-margin${0}                                  { margin:20px; }
 
                 ), size.first ));
 

@@ -12,10 +12,10 @@ namespace uk {
                 { "2xsmall", "2px"  },
                 { "xsmall",  "5px"  },
                 { "small",   "10px" },
-                { "medium",  "20px" },
-                { "large",   "25px" },
-                { "xlarge",  "30px" },
-                { "2xlarge", "35px" }
+                { "medium",  "15px" },
+                { "large",   "20px" },
+                { "xlarge",  "25px" },
+                { "2xlarge", "30px" }
             }).data() ){
                 cli.write( regex::format( _STRING_(
                    .uk-rounded-hover-${0}:hover { border-radius: ${1}; }
@@ -28,12 +28,12 @@ namespace uk {
                 .uk-rounded-hover-phill:hover { border-radius: 500px; }
                 .uk-rounded-phill             { border-radius: 500px; }
 
-                .uk-rounded-hover:hover       { border-radius: 15px;  } 
-                .uk-rounded                   { border-radius: 15px;  }
+                .uk-rounded-hover:hover       { border-radius: 5px;  } 
+                .uk-rounded                   { border-radius: 5px;  }
                 
                 .uk-rounded-remove-top { 
-                    border-top-left-radius:  0px !important; 
-                    border-top-right-radius: 0px !important; 
+                    border-top-left-radius:    0px !important; 
+                    border-top-right-radius:   0px !important; 
                 }
                 
                 .uk-rounded-remove-left { 

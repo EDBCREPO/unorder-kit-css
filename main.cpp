@@ -17,7 +17,7 @@ void compile() {
         console::log( "->", cli.path );
     }); uk::controller( app );
     
-    app.USE( express::http::ssr( "View" ) );
+    app.USE( express::http::file( "View" ) );
 
     app.listen( "0.0.0.0", 8000, []( ... ){
         console::log( "-> http://localhost:8000" );
@@ -46,7 +46,7 @@ void test() {
         console::log( "->", cli.path );
     });
     
-    app.USE( express::http::ssr( "build" ) );
+    app.USE( express::http::file( "build" ) );
 
     app.listen( "0.0.0.0", 8000, []( ... ){
         console::log( "-> http://localhost:8000" );

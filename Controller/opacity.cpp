@@ -10,7 +10,6 @@ namespace uk {
             for( auto x=10; x>0; x-- ){
                 cli.write( regex::format( _STRING_(
                    .uk-border-opacity-${0}     { border-color: rgba( from currentColor r g b / ${0}0% ) !important; }
-                   .uk-background-opacity-${0} { background: rgba( from currentColor r g b / ${0}0% ) !important; }
                    .uk-opacity-${0}            { opacity: ${0}0% !important; }
                 ), x )); 
             }

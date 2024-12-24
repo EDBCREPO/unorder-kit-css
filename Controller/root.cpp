@@ -39,11 +39,11 @@ namespace uk {
 
                 /*.........................................................................*/
 
-                * { color: inherit; text-decoration: none !important; align-content: flex-start; box-sizing: border-box; margin: 0px; }
+                * { color: inherit; text-decoration: none !important; align-content: flex-start; box-sizing: border-box; margin: 0px; font-size: inherit; }
 
                 audio, canvas, iframe, img, svg, video { vertical-align: middle; max-width: 100%; height: auto; }
 
-                h1,h2,h3,h4,h5,h6,p,hr { margin: 0px; user-select: text; display: flex; }
+                h1,h2,h3,h4,h5,h6,p,hr { margin: 0px; user-select: text; display: flex; align-items: center; }
 
                 img:not([src]) { visibility: hidden; display: none; }
 
@@ -65,7 +65,6 @@ namespace uk {
                 /*.........................................................................*/
 
                 .uk-yflip { transform: scaleY(-1) !important; }
-
                 .uk-xflip { transform: scaleX(-1) !important; }
 
                 /*.........................................................................*/

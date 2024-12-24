@@ -15,7 +15,7 @@ namespace uk {
                 { "h5",   "font-size: unset    !important;" },
                 { "h6",   "font-size: unset    !important;" },
             }).data() ){ cli.write( regex::format( _STRING_(
-                ${0} *, .uk-${0} * { font-size: inherit; font-weight: inherit; }
+                ${0} *, .uk-${0} * { font-size: inherit !important; font-weight: inherit !important; }
                 ${0},   .uk-${0}   { ${1} }
             ), item.first, item.second )); }
             

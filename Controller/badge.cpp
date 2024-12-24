@@ -35,7 +35,7 @@ namespace uk {
                 .uk-badge { 
                     border: 1px solid var(--none);
                     align-content: center;
-                    border-radius: 30px;
+                    border-radius: 5px;
                     text-align: center;
                     padding: 0px 10px; 
                     user-select: none;
