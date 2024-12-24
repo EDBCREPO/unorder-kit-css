@@ -43,14 +43,23 @@
 
         <div><div class="uk-border uk-rounded uk-flex uk-gap-2xsmall uk-padding-small 
                          uk-flex-center uk-flex-middle uk-flex-wrap
-                         uk-animation" 
-                  toggle animation="shake" >
+                         uk-animation" animation="shake" >
 
-            <h1> Close Me
-                <label class="uk-button-icon uk-icon" icon="close">
-                    <input type="checkbox" toggle hidden >
-                </label>
-            </h1>
+            <div toggle="" class="uk-background-danger uk-width-2-3 uk-padding-2xsmall uk-flex uk-flex-between uk-rounded"> 
+                 Danger Message <label class="uk-icon" icon="close"> <input type="checkbox" toggle hidden> </label>
+            </div>
+
+            <div toggle="" class="uk-background-primary uk-width-2-3 uk-padding-2xsmall uk-flex uk-flex-between uk-rounded"> 
+                 Info Message <label class="uk-icon" icon="close"> <input type="checkbox" toggle hidden> </label>
+            </div>
+
+            <div toggle="" class="uk-background-success uk-width-2-3 uk-padding-2xsmall uk-flex uk-flex-between uk-rounded"> 
+                 Success Message <label class="uk-icon" icon="close"> <input type="checkbox" toggle hidden> </label>
+            </div>
+
+            <div toggle="" class="uk-background-warning uk-width-2-3 uk-padding-2xsmall uk-flex uk-flex-between uk-rounded"> 
+                 warning Message <label class="uk-icon" icon="close"> <input type="checkbox" toggle hidden> </label>
+            </div>
 
         </div></div>
 
@@ -98,11 +107,11 @@
 
         </form></div>
 
-        <div><form class="uk-child-width-1-2@m uk-child-width-1-3@l
+        <div><form class="uk-child-width-1-2@s uk-child-width-1-3@m
                           uk-border uk-rounded uk-flex uk-selector
                           uk-flex-wrap uk-padding-small
                           uk-selector-active-primary
-                          uk-child-width-auto">
+                          uk-child-width-1-6">
 
             <label> <input type="radio" name="item" class="uk-toggle-1" checked> Item 1 </label>
             <label> <input type="radio" name="item" class="uk-toggle-2"        > Item 2 </label>
