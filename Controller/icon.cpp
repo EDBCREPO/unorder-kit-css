@@ -21,7 +21,7 @@ namespace uk {
                     line-height: 1;
                     content: attr(icon);
                     direction: ltr;
-                    font-size: inherit;
+                    font-size: 22px;
                     word-wrap: normal;
                     white-space: nowrap;
                     text-transform: none;
