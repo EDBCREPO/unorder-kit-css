@@ -8,12 +8,13 @@ namespace uk {
         app.ALL([=]( express_http_t cli ){ cli.send();
 
             for( auto& item: map_t<string_t,string_t>({
-                { "h1",   "font-size: xx-large !important;" },
-                { "h2",   "font-size: x-large  !important;" },
-                { "h3",   "font-size: large    !important;" },
-                { "h4",   "font-size: medium   !important;" },
-                { "h5",   "font-size: unset    !important;" },
-                { "h6",   "font-size: unset    !important;" },
+                { "h0", "font-size: xxx-large !important; line-height: 1.2;" },
+                { "h1", "font-size: xx-large  !important; line-height: 1.2;" },
+                { "h2", "font-size: x-large   !important; line-height: 1.3;" },
+                { "h3", "font-size: large     !important; line-height: 1.4;" },
+                { "h4", "font-size: medium    !important; line-height: 1.4;" },
+                { "h5", "font-size: unset     !important; line-height: 1.4;" },
+                { "h6", "font-size: unset     !important; line-height: 1.4;" },
             }).data() ){ cli.write( regex::format( _STRING_(
 
                 ${0}, .uk-${0}{ ${1} }

@@ -43,24 +43,17 @@ namespace uk {
 
                 audio, canvas, iframe, img, svg, video { vertical-align: middle; max-width: 100%; height: auto; }
 
-                h1,h2,h3,h4,h5,h6,p,hr { margin: 0px; user-select: text; display: flex; align-items: center; }
+                h1,h2,h3,h4,h5,h6 { display: flex; align-items: center; }
+
+                hr { border-bottom: unset; border-color: var(--mute); }
 
                 img:not([src]) { visibility: hidden; display: none; }
 
                 body { overflow-x: hidden; margin: 0px; }
 
-                hr { border-color: var(--neutral); }
+                s { font-weight: bold !important; }
 
                 textarea { transition: none; }
-
-                /*.........................................................................*/
-
-                h1 { font-size: 2.23125rem; line-height: 1.2; }
-                h2 { font-size: 1.7rem;     line-height: 1.3; }
-                h3 { font-size: 1.5rem;     line-height: 1.4; }
-                h4 { font-size: 1.25rem;    line-height: 1.4; }
-                h5 { font-size: 16px;       line-height: 1.4; }
-                h6 { font-size: 0.875rem;   line-height: 1.4; }
 
                 /*.........................................................................*/
 

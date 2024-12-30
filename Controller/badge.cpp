@@ -20,7 +20,6 @@ namespace uk {
             }).data() ){
                 cli.write( regex::format( _STRING_(
                     .uk-badge-${0}-outline { 
-                        background: rgba( from var(--${0}) r g b / 10% );
                         border-color: var(--${0}) !important;
                         color: var(--${0}) !important;  
                     } 

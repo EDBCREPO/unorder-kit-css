@@ -77,6 +77,8 @@
     animation-timing-function: ease-in;
 }
 
+.uk-animation-slow { animation-duration: 0.9s; }
+
 .uk-animation-fast { animation-duration: 0.1s; }
 
 .uk-animation-toggle:not(:hover):not(:focus) [class*="uk-animation"] { animation-name: none; }

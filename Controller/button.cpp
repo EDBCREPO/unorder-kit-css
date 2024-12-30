@@ -100,18 +100,18 @@ namespace uk {
             }).data() ){
                 cli.write( regex::format( _STRING_(
                     .uk-button-${0}-outline { 
-                        background: rgba( from var(--${0}) r g b / 10% );
+                        background: var(--none) !important;
                         color: var(--${0}) !important; 
                         border-color: var(--${0});
                     }
                     .uk-button-hover-${0}-outline:hover {
-                        background: rgba( from var(--${0}) r g b / 10% );
+                        background: var(--none) !important;
                         color: var(--${0}) !important; 
                         border-color: var(--${0});
                         opacity: 100% !important;
                     }
                     .uk-button-active-${0}-outline:active {
-                        background: rgba( from var(--${0}) r g b / 10% );
+                        background: var(--none) !important;
                         color: var(--${0}) !important; 
                         border-color: var(--${0});
                         opacity: 100% !important;
