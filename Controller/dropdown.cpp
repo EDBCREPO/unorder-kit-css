@@ -10,18 +10,14 @@ namespace uk {
             cli.write( _STRING_(
 
                 .uk-dropdown-hover:hover>[toggle], .uk-dropdown:has(:checked)>[toggle], .uk-dropdown>[toggle]:hover {
+                    position: absolute; flex-direction: column; display: flex;
                     padding: 6px 10px; margin: 0px; width: 100%; z-index: 1;
-                    color: var(--light); position: absolute;
-                    flex-direction: column; display: flex;
+                    color: inherit; background-color: inherit;
                     left: 0; top:100%; list-style: none;
-                    background-color: var(--secondary);
                     border: inherit; user-select: none;
-                    border-radius: 0px 0px 5px 5px;
                 }
 
                 [class*="uk-dropdown"]>[toggle], .uk-dropdown>input                      { display: none; }
-
-                .uk-dropdown:has(:checked),.uk-dropdown-bottom:has(:checked)             { border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
 
                 .uk-dropdown-top:hover>[toggle],    .uk-dropdown-top>[toggle]:hover      { left:0; top:unset; bottom:100%; right:unset; }
                 .uk-dropdown-bottom:hover>[toggle], .uk-dropdown-bottom>[toggle]:hover   { left:0; top:100%; bottom:unset; right:unset; }
