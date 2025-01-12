@@ -20,9 +20,9 @@ namespace uk {
                 { "none",      "inherit"      }
             }).data() ){
                 cli.write( regex::format( _STRING_(
-                   .uk-background-hover-${0}:hover { background-color: var(--${0}) !important; color: ${1}  !important; }
-                   .uk-background-${0}             { background-color: var(--${0}); color: ${1}; }
-                   .uk-hr-${0}                     { border-color: var(--${0}) !important; }
+                   .uk-background-hover-${0}:hover { background-color: var(--${0}) !important; color: ${1} !important; }
+                   .uk-background-${0}             { background-color: var(--${0}) !important; color: ${1} !important; }
+                   .uk-hr-${0}                     { border-color:     var(--${0}) !important; }
                 ), color.first, color.second )); 
             }
 
