@@ -23,6 +23,7 @@ namespace uk {
 
                 for( auto x=1; x<=12; x++ ){ for( auto y=1; y<=12; y++ ){ if( x >= y ){ continue; }
                     cli.write( regex::format( _STRING_(
+                       .uk-vw-${0}-${1}${2}                                   { min-width: calc( 100vw * ${0} / ${1} ); max-width: calc( 100vw * ${0} / ${1} ); }
                        .uk-child-width-${0}-${1}${2}>:not([class*='uk-width']){ min-width: calc( ${0}00% / ${1} ); max-width: calc( ${0}00% / ${1} ); }
                        .uk-width-${0}-${1}${2}                                { min-width: calc( ${0}00% / ${1} ); max-width: calc( ${0}00% / ${1} ); }
                     ), x, y, size.first ));

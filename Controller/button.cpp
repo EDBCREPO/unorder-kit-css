@@ -99,23 +99,6 @@ namespace uk {
                 { "neutral",   "light" }
             }).data() ){
                 cli.write( regex::format( _STRING_(
-                    .uk-button-${0}-outline { 
-                        background: var(--none) !important;
-                        color: var(--${0}) !important; 
-                        border-color: var(--${0});
-                    }
-                    .uk-button-hover-${0}-outline:hover {
-                        background: var(--none) !important;
-                        color: var(--${0}) !important; 
-                        border-color: var(--${0});
-                        opacity: 100% !important;
-                    }
-                    .uk-button-active-${0}-outline:active {
-                        background: var(--none) !important;
-                        color: var(--${0}) !important; 
-                        border-color: var(--${0});
-                        opacity: 100% !important;
-                    }
                     .uk-button-text-${0}::before {
                         border-color: var(--${0}) !important;
                     }
@@ -123,15 +106,32 @@ namespace uk {
                         background-color: var(--${0}); 
                         color: var(--${1}) !important; 
                     }
+                    .uk-button-${0}-outline { 
+                        background: var(--none) !important;
+                        color: var(--${0}) !important; 
+                        border-color: var(--${0});
+                    }
                     .uk-button-hover-${0}:hover { 
                         background-color: var(--${0}); 
                         color: var(--${1}) !important; 
                         border-color: var(--${0});
                         opacity: 100% !important;
                     }
+                    .uk-button-hover-${0}-outline:hover {
+                        background: var(--none) !important;
+                        color: var(--${0}) !important; 
+                        border-color: var(--${0});
+                        opacity: 100% !important;
+                    }
                     .uk-button-active-${0}:active { 
                         background-color: var(--${0}); 
                         color: var(--${1}) !important; 
+                        border-color: var(--${0});
+                        opacity: 100% !important;
+                    }
+                    .uk-button-active-${0}-outline:active {
+                        background: var(--none) !important;
+                        color: var(--${0}) !important; 
                         border-color: var(--${0});
                         opacity: 100% !important;
                     }

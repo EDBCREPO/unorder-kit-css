@@ -54,6 +54,7 @@ namespace nodepp { namespace _express_ {
 
           template< class T >
           coEmit( T& str, string_t path ){
+               if( !std.is_available() ){ return -1; }
           gnStart
 
                if( !url::is_valid( path ) ){
@@ -91,8 +92,9 @@ namespace nodepp { namespace _express_ {
                               { "Host", url::hostname(path) }
                          });
 
-                         http::fetch( args )
-                         .fail([=](...){ *self->state=0; }).then([=]( http_t cli ){
+                         http::fetch( args ).fail([=](...){ *self->state=0; })
+                                            .then([=]( http_t cli ){
+                              if( !std.is_available() ){ return; }
                               cli.onData([=]( string_t data ){ str.write(data); });
                               cli.onDrain.once([=](){ *self->state=0; });
                               stream::pipe( cli );
@@ -112,8 +114,9 @@ namespace nodepp { namespace _express_ {
                               { "Host", url::hostname(path) }
                          });
 
-                         https::fetch( args, &ssl )
-                         .fail([=](...){ *self->state=0; }).then([=]( https_t cli ){
+                         https::fetch( args, &ssl ).fail([=](...){ *self->state=0; })
+                                                   .then([=]( https_t cli ){
+                              if( !std.is_available() ){ return; }
                               cli.onData([=]( string_t data ){ str.write(data); });
                               cli.onDrain.once([=](){ *self->state=0; });
                               stream::pipe( cli );
@@ -331,7 +334,8 @@ protected:
           if( _path[0].size() != _path[1].size() )   { return false; }
 
           for ( ulong x=0; x<_path[0].size(); x++ ){ if( _path[1][x]==nullptr ){ return false; }
-          elif( _path[1][x][0] == ':' ){ cli.params[_path[1][x].slice(1)]=url::normalize(_path[0][x]); }
+          elif( _path[1][x][0] == ':' ){ if( _path[0][x].empty() ){ return false; }
+                cli.params[_path[1][x].slice(1)] = url::normalize( _path[0][x] ); }
           elif( _path[1][x]    == "*"         ){ continue;     }
           elif( _path[1][x]    == nullptr     ){ continue;     }
           elif( _path[1][x]    != _path[0][x] ){ return false; }
