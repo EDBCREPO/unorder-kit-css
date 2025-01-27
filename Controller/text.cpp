@@ -36,6 +36,8 @@ namespace uk {
             cli.write( _STRING_(
 
                 .uk-text-lead       { font-size: 1.5rem; line-height: 1.5; }
+                .uk-text-nowrap     { text-wrap-mode: nowrap; }
+                .uk-text-wrap       { text-wrap-mode: wrap; }
                 .uk-text-italic     { font-style: italic; }
 
                 .uk-text-light      { font-weight: 300;     }
