@@ -43,6 +43,8 @@ namespace uk {
 
                 audio, canvas, iframe, img, svg, video { vertical-align: middle; max-width: 100%; height: auto; }
 
+                form:has(input[type="submit"]:focus){ pointer-events: none; }
+
                 h1,h2,h3,h4,h5,h6 { display: flex; align-items: center; }
 
                 hr { border-bottom: unset; border-color: var(--mute); }

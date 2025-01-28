@@ -8,6 +8,7 @@ namespace uk {
         app.ALL([=]( express_http_t cli ){ cli.send();
 
             cli.write( _STRING_( [toggle=""]:not(input):has(input[toggle]:checked) { display: none !important; } ));
+            cli.write( _STRING_( [toggle-hover=""]:not(:hover) [toggle]{ display: none !important; } ));
 
             for( auto& size: map_t<string_t,int>({ 
                 { nullptr, 0   },
@@ -23,7 +24,7 @@ namespace uk {
                     ), size.second ));
                 }
 
-                for( auto x=0; x<=9; x++ ){
+                for( auto x=0; x<=12; x++ ){
                     cli.write( regex::format( _STRING_(
                        body:has(input[class="uk-toggle-${0}${1}"]:checked)       [toggle="${0}"] { display: none !important; }
                        body:has(input[class="uk-toggle-${0}${1}"]:not(:checked)) [toggle="!${0}"]{ display: none !important; }
