@@ -1,30 +1,37 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t background() {
         auto app = express::http::add();
 
         app.ALL([=]( express_http_t cli ){ cli.send();
-            
+
             for( auto& color: map_t<string_t,string_t>({
-                { "primary",   "var(--light)" },
-                { "secondary", "var(--light)" },
-                { "success",   "var(--dark)"  },
-                { "warning",   "var(--light)" },
-                { "danger",    "var(--light)" },
-                { "mute",      "var(--dark)"  },
-                { "dark",      "var(--light)" },
-                { "light",     "var(--dark)"  },
-                { "neutral",   "var(--light)" },
-                { "none",      "inherit"      }
+                { "primary",   "var(--light)" }, { "secondary", "var(--light)" },
+                { "success",   "var(--dark)"  }, { "warning",   "var(--light)" },
+                { "danger",    "var(--light)" }, { "mute",      "var(--dark)"  },
+                { "dark",      "var(--light)" }, { "light",     "var(--dark)"  },
+                { "neutral",   "var(--light)" }, { "none",      "inherit"      }
             }).data() ){
                 cli.write( regex::format( _STRING_(
                    .uk-background-hover-${0}:hover { background-color: var(--${0}) !important; color: ${1} !important; }
                    .uk-background-${0}             { background-color: var(--${0}) !important; color: ${1} !important; }
                    .uk-hr-${0}                     { border-color:     var(--${0}) !important; }
-                ), color.first, color.second )); 
+                ), color.first, color.second ));
             }
+
+            for( auto& item: array_t<string_t>({
+                "revert", "bottom", "center", "bottom", "left", "right"
+            })){ cli.write( regex::format( _STRING_(
+                .uk-background-position-${0} { background-position: ${0} !important; }
+            ), item )); }
+
+            for( auto& item: array_t<string_t>({
+                "revert", "contain", "cover", "fill", "none"
+            })){ cli.write( regex::format( _STRING_(
+                .uk-object-fit-${0} { object-fit: ${0} !important; }
+            ), item )); }
 
         });
 

@@ -1,12 +1,12 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t text() {
         auto app = express::http::add();
 
         app.ALL([=]( express_http_t cli ){ cli.send();
-            
+
             forEach( item, ptr_t<string_t>({
                 "none", "blink", "dashed", "dotted", "solid", "double", "wavy", "overline", "undeline"
             })){
@@ -14,13 +14,13 @@ namespace uk {
                    .uk-text-decoration-${0} { text-decoration: ${0}; }
                 ), item ));
             }
-            
+
             forEach( item, ptr_t<string_t>({ "left", "right", "center", "justify" })){
                 cli.write( regex::format( _STRING_(
                    .uk-text-${0} { text-align: ${0}; }
                 ), item ));
             }
-            
+
             forEach( color, ptr_t<string_t>({
                 "primary", "secondary", "success",
                 "warning", "danger"   , "mute"   ,
@@ -35,7 +35,9 @@ namespace uk {
 
             cli.write( _STRING_(
 
+
                 .uk-text-lead       { font-size: 1.5rem; line-height: 1.5; }
+                .uk-text-inherit    { font-size: inherit !important; }
                 .uk-text-nowrap     { text-wrap-mode: nowrap; }
                 .uk-text-wrap       { text-wrap-mode: wrap; }
                 .uk-text-italic     { font-style: italic; }
@@ -45,7 +47,7 @@ namespace uk {
                 .uk-text-bold       { font-weight: 700;     }
                 .uk-text-bolder     { font-weight: bolder;  }
                 .uk-text-lighter    { font-weight: lighter; }
-                
+
                 .uk-text-lowecase   { text-transform: lowecase;   }
                 .uk-text-uppercase  { text-transform: uppercase;  }
                 .uk-text-capitalize { text-transform: capitalize; }
