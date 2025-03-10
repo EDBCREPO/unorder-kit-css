@@ -16,6 +16,7 @@
 #include "./margin.cpp"
 #include "./button.cpp"
 #include "./toggle.cpp"
+#include "./scroll.cpp"
 #include "./opacity.cpp"
 #include "./tooltip.cpp"
 #include "./padding.cpp"
@@ -28,7 +29,7 @@
 #include "./visibility.cpp"
 #include "./background.cpp"
 
-namespace uk { 
+namespace uk {
 
     template< class T >
     void controller( T& app ) {
@@ -48,6 +49,7 @@ namespace uk {
         app.USE( "border",     border()     );
         app.USE( "button",     button()     );
         app.USE( "toggle",     toggle()     );
+        app.USE( "scroll",     scroll()     );
         app.USE( "margin",     margin()     );
         app.USE( "opacity",    opacity()    );
         app.USE( "padding",    padding()    );
