@@ -1,6 +1,6 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t toggle() {
         auto app = express::http::add();
@@ -10,12 +10,12 @@ namespace uk {
             cli.write( _STRING_( [toggle=""]:not(input):has(input[toggle]:checked) { display: none !important; } ));
             cli.write( _STRING_( [toggle-hover=""]:not(:hover) [toggle]{ display: none !important; } ));
 
-            for( auto& size: map_t<string_t,int>({ 
-                { nullptr, 0   },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+            for( auto& size: map_t<string_t,int>({
+                { nullptr,   0 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){

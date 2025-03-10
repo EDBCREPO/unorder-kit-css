@@ -8,11 +8,11 @@ namespace uk {
         app.ALL([=]( express_http_t cli ){ cli.send();
 
             for( auto& size: map_t<string_t,int>({
-                { nullptr, 0   },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+                { nullptr,   0 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){
@@ -51,11 +51,11 @@ namespace uk {
             }
 
             for( auto& size: map_t<string_t,int>({
-                { nullptr, 0   },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+                { nullptr,   0 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){

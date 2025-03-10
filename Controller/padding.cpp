@@ -1,18 +1,18 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t padding() {
         auto app = express::http::add();
 
         app.ALL([=]( express_http_t cli ){ cli.send();
 
-            for( auto& size: map_t<string_t,int>({ 
+            for( auto& size: map_t<string_t,int>({
                 { nullptr,   0 },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){
@@ -32,13 +32,13 @@ namespace uk {
                     { "2xlarge", "35px" }
                 }).data() ){
                     cli.write( regex::format( _STRING_ (
-                       .uk-child-padding-${0}${2}>:not([class*="uk-padding"]){ padding:${1} !important; } 
+                       .uk-child-padding-${0}${2}>:not([class*="uk-padding"]){ padding:${1} !important; }
                        .uk-padding-${0}${2}                                  { padding:${1} !important; }
                     ), item.first, item.second, size.first ));
                 }
 
                 cli.write( regex::format( _STRING_ (
-                    
+
                     .uk-child-padding${0}>:not([class*="uk-padding"]){ padding:15px; }
                     .uk-padding${0}                                  { padding:15px; }
 

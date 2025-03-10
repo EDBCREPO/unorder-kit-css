@@ -1,20 +1,20 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t position() {
         auto app = express::http::add();
 
         app.ALL([=]( express_http_t cli ){ cli.send();
-                
+
             cli.write( _STRING_( [class*=uk-position]{ position: absolute; }));
 
-            for( auto& size: map_t<string_t,int>({ 
+            for( auto& size: map_t<string_t,int>({
                 { nullptr,   0 },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){
