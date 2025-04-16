@@ -7,7 +7,7 @@ namespace uk {
 
         app.ALL([=]( express_http_t cli ){ cli.send();
 
-            for( auto& size: map_t<string_t,int>({ 
+            for( auto& size: map_t<string_t,int>({
                 { nullptr,   0 },
                 { "\\@2l",1600 },
                 { "\\@l", 1200 },
@@ -17,7 +17,7 @@ namespace uk {
 
                 if( size.first != nullptr ){
                     cli.write( regex::format( _STRING_(
-                       @media( min-width: ${0}px ) {
+                       @media( max-width: ${0}px ) {
                     ), size.second ));
                 }
 
@@ -54,7 +54,7 @@ namespace uk {
 
                 for( auto& item: ptr_t<string_t>({
                     "column-reverse", "column",
-                    "row", "row-reverse"
+                    "row-reverse"   , "row"
                 })){
                     cli.write( regex::format( _STRING_(
                        .uk-flex-${0}${1} { flex-direction: ${0}; }

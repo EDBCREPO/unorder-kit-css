@@ -35,7 +35,6 @@ namespace uk {
 
             cli.write( _STRING_(
 
-
                 .uk-text-lead       { font-size: 1.5rem; line-height: 1.5; }
                 .uk-text-inherit    { font-size: inherit !important; }
                 .uk-text-nowrap     { text-wrap-mode: nowrap; }
@@ -48,7 +47,7 @@ namespace uk {
                 .uk-text-bolder     { font-weight: bolder;  }
                 .uk-text-lighter    { font-weight: lighter; }
 
-                .uk-text-lowecase   { text-transform: lowecase;   }
+                .uk-text-lowercase  { text-transform: lowercase;   }
                 .uk-text-uppercase  { text-transform: uppercase;  }
                 .uk-text-capitalize { text-transform: capitalize; }
 

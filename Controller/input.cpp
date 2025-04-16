@@ -1,6 +1,6 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t input() {
         auto app = express::http::add();
@@ -41,12 +41,12 @@ namespace uk {
 
                 .uk-input::placeholder { color: var(--neutral); }
 
-                .uk-input *{ color: initial !important; }
-
                 .uk-radio:checked, .uk-checkbox:checked {
                     background-color: var(--primary);
                     border-color: var(--primary);
                 }
+
+                .uk-input * { color: initial; }
 
                 .uk-range {
                     border: 1px solid var(--neutral);
@@ -76,7 +76,7 @@ namespace uk {
                 .uk-input[type="date"]{ display: flex !important; }
 
             ));
-            
+
             forEach( color, ptr_t<string_t>({
                 "primary", "secondary", "success",
                 "warning", "danger"   , "mute"   ,
@@ -88,16 +88,18 @@ namespace uk {
                     border-color: var(--${0});
                 }
 
+                .uk-placeholder-${0}::placeholder { color: var(--${0}); }
+
                 .uk-checkbox-${0}, .uk-radio-${0}, .uk-input-${0} {
                     border: 1px solid var(--neutral);
                 }
 
-                .uk-input-required-${0}:required { 
-                    border-color: var(--${0}); 
+                .uk-input-required-${0}:required {
+                    border-color: var(--${0});
                 }
 
-                .uk-input-invalid-${0}:invalid { 
-                    border-color: var(--${0}); 
+                .uk-input-invalid-${0}:invalid {
+                    border-color: var(--${0});
                 }
 
                 .uk-input-focus-${0}:focus {
