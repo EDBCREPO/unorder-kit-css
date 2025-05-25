@@ -39,7 +39,7 @@ namespace uk {
                     { "sticky",       "position: sticky !important; top: 20px;"       }
                 }).data() ){
                     cli.write( regex::format( _STRING_(
-                       .uk-position-${0}${2} { ${1} display:flex; justify-content:center; }
+                       .uk-position-${0}${2} { ${1} }
                     ), item.first, item.second, size.first ));
                 }
 
