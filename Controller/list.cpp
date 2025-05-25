@@ -1,12 +1,12 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t list() {
         auto app = express::http::add();
 
         app.ALL([=]( express_http_t cli ){ cli.send();
-            
+
             cli.write( regex::format( _STRING_(
 
                 .uk-list-striped > *                 { padding: 8px 10px; margin: 0px !important; }
@@ -35,7 +35,7 @@ namespace uk {
 
                 .uk-list { padding: 0px 10px; }
 
-            ))); 
+            )));
 
             for( auto& color : ptr_t<string_t>({
                 "primary", "secondary", "success",
@@ -48,12 +48,12 @@ namespace uk {
                     margin-top:  10px;
                 }
             ), color )); }
-            
+
             for( auto& color: map_t<string_t,string_t>({
                 { "primary",   "var(--light)" },
                 { "secondary", "var(--light)" },
                 { "success",   "var(--dark)"  },
-                { "warning",   "var(--light)" },
+                { "warning",   "var(--dark)"  },
                 { "danger",    "var(--light)" },
                 { "mute",      "var(--dark)"  },
                 { "dark",      "var(--light)" },

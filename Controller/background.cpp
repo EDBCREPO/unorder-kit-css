@@ -9,7 +9,7 @@ namespace uk {
 
             for( auto& color: map_t<string_t,string_t>({
                 { "primary",   "var(--light)" }, { "secondary", "var(--light)" },
-                { "success",   "var(--dark)"  }, { "warning",   "var(--light)" },
+                { "success",   "var(--dark)"  }, { "warning",   "var(--dark)"  },
                 { "danger",    "var(--light)" }, { "mute",      "var(--dark)"  },
                 { "dark",      "var(--light)" }, { "light",     "var(--dark)"  },
                 { "neutral",   "var(--light)" }, { "none",      "inherit"      }

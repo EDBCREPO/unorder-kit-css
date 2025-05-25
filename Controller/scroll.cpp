@@ -7,6 +7,12 @@ namespace uk { express_tcp_t scroll() {
 
         cli.write( _STRING_(
 
+            * {
+                scrollbar-color:  inherit;
+                scrollbar-height: 0.0em;
+                scrollbar-width:  0.0em;
+            }
+
             ::-webkit-scrollbar-thumb {
                 background-color: var(--none);
                 border-radius: 10px;
@@ -18,14 +24,8 @@ namespace uk { express_tcp_t scroll() {
 
             ::-webkit-scrollbar {
                 position: absolute;
-                height: 0.0em;
-                width:  0.0em;
-            }
-
-            * {
-                scrollbar-color: transparent transparent;
-                scrollbar-height: 0.0em;
-                scrollbar-width: 0.0em;
+                height:   0.0em;
+                width:    0.0em;
             }
 
         ));

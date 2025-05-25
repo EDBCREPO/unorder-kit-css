@@ -25,10 +25,10 @@ namespace uk {
 
                 for( auto& item : map_t<string_t,string_t>({
                     { "center",       "bottom: 50%; left: 50%; right: 50%; top: 50%;" },
-                    { "bottom",       "bottom:  0%; left:  0 ; right:  0 ;"           },
+                    { "bottom",       "bottom:  0%; left: 50%; right: 50%;"           },
                     { "right",        "bottom: 50%; top:  50%; right:  0%;"           },
                     { "left",         "bottom: 50%; top:  50%; left:   0%;"           },
-                    { "top",          "top:     0%; left:  0 ; right:  0 ;"           },
+                    { "top",          "top:     0%; left: 50%; right: 50%;"           },
                     { "top-left",     "top:     0%; left:  0%;"                       },
                     { "top-right",    "top:     0%; right: 0%;"                       },
                     { "bottom-left",  "bottom:  0%; left:  0%;"                       },
@@ -39,7 +39,7 @@ namespace uk {
                     { "sticky",       "position: sticky !important; top: 20px;"       }
                 }).data() ){
                     cli.write( regex::format( _STRING_(
-                       .uk-position-${0}${2} { ${1} }
+                       .uk-position-${0}${2} { ${1} display:flex; justify-content:center; }
                     ), item.first, item.second, size.first ));
                 }
 

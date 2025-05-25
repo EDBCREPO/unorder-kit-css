@@ -1,6 +1,6 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t root() {
         auto app = express::http::add();
@@ -16,14 +16,14 @@ namespace uk {
                 }
 
                 /*.........................................................................*/
-                
+
                 :root {
-                    --secondary: #0d0d0c;
-                    --primary:   #6636fc;
-                    --success:   #50d35a;
-                    --warning:   orange;
+                    --secondary: #0c0b0e;
+                    --primary:   #6200ff;
+                    --success:   #1f0;
+                    --warning:   #ffc300;
                     --neutral:   #444;
-                    --danger:    #ff0d3b;
+                    --danger:    #ff004c;
                     --light:     white;
                     --dark:      black;
                     --mute:      #aaa;
@@ -39,23 +39,18 @@ namespace uk {
 
                 /*.........................................................................*/
 
-                * { color: inherit; text-decoration: none !important; align-content: flex-start; box-sizing: border-box; margin: 0px; font-size: inherit; word-wrap: break-word; }
+                *        { color: inherit; text-decoration: none !important; align-content: flex-start; box-sizing: border-box; margin: 0px; font-size: inherit; word-wrap: break-word; }
+                hr       { border-bottom: unset; border-color: var(--mute); }
+                body     { overflow-x: hidden; margin: 0px; }
+                s        { font-weight: bold !important; }
+                textarea { transition: none; }
+
+                /*.........................................................................*/
 
                 audio, canvas, iframe, img, svg, video { vertical-align: middle; max-width: 100%; height: auto; }
-
                 form:has(input[type="submit"]:focus){ pointer-events: none; }
-
                 h1,h2,h3,h4,h5,h6 { display: flex; align-items: center; }
-
-                hr { border-bottom: unset; border-color: var(--mute); }
-
                 img:not([src]) { visibility: hidden; display: none; }
-
-                body { overflow-x: hidden; margin: 0px; }
-
-                s { font-weight: bold !important; }
-
-                textarea { transition: none; }
 
                 /*.........................................................................*/
 
@@ -74,7 +69,7 @@ namespace uk {
 
                 /*.........................................................................*/
 
-                a, .uk-link {
+                a, .uk-link, label:has(input) {
                     text-decoration: none;
                     cursor: pointer;
                     color: inherit;

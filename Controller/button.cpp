@@ -91,7 +91,7 @@ namespace uk {
                 { "primary",   "light" },
                 { "secondary", "light" },
                 { "success",   "dark"  },
-                { "warning",   "light" },
+                { "warning",   "dark"  },
                 { "danger",    "light" },
                 { "mute",      "dark"  },
                 { "light",     "dark"  },
