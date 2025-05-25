@@ -18,12 +18,12 @@ namespace uk {
                 /*.........................................................................*/
 
                 :root {
-                    --secondary: #0c0b0e;
-                    --primary:   #6200ff;
-                    --success:   #1f0;
-                    --warning:   #ffc300;
+                    --secondary: #0d0d0c;
+                    --primary:   #6636fc;
+                    --success:   #50d35a;
+                    --warning:   orange;
                     --neutral:   #444;
-                    --danger:    #ff004c;
+                    --danger:    #ff0d3b;
                     --light:     white;
                     --dark:      black;
                     --mute:      #aaa;
