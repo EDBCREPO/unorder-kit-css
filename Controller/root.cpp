@@ -20,7 +20,7 @@ namespace uk {
                 :root {
                     --secondary: #0d0d0c;
                     --primary:   #6636fc;
-                    --success:   #50d35a;
+                    --success:   #00f782;
                     --warning:   orange;
                     --neutral:   #444;
                     --danger:    #ff0d3b;
