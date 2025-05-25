@@ -116,7 +116,7 @@ namespace uk {
                         border-color: var(--${0});
                     }
                     .uk-button-hover-${0}:hover {
-                        background-color: var(--${0});
+                        background-color: var(--${0}) !important;
                         color: var(--${1}) !important;
                         border-color: var(--${0});
                         opacity: 100% !important;
@@ -132,7 +132,7 @@ namespace uk {
                         border: 1px solid rgb( from var(--${0}) r g b / 50% );
                     }
                     .uk-button-active-${0}:active {
-                        background-color: var(--${0});
+                        background-color: var(--${0}) !important;
                         color: var(--${1}) !important;
                         border-color: var(--${0});
                         opacity: 100% !important;
