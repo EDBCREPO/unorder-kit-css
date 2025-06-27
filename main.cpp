@@ -10,24 +10,24 @@ using namespace nodepp;
 #include "Controller/controller.cpp"
 
 void compile() {
-    
+
     auto app = express::http::add();
 
     app.ALL([=]( express_http_t cli ){
         console::log( "->", cli.path );
     }); uk::controller( app );
-    
-    app.USE( express::http::ssr( "View" ) );
+
+    app.USE( express::http::file( "View" ) );
 
     app.listen( "0.0.0.0", 8000, []( ... ){
         console::log( "-> http://localhost:8000" );
 
         fetch_t args;
         args.method = "GET";
-        args.url    = "http://localhost:8000/main.css";
+        args.url    = "http://localhost:8000/uikit.css";
 
         http::fetch( args ).then([=]( http_t cli ){
-            auto file = fs::writable("./build/main.css");
+            auto file = fs::writable("./build/uikit.css");
             cli.onDrain([=](){ process::exit(); });
             stream::pipe( cli, file );
         }).fail([=]( ... ){
@@ -39,14 +39,14 @@ void compile() {
 }
 
 void test() {
-    
+
     auto app = express::http::add();
 
     app.ALL([=]( express_http_t cli ){
         console::log( "->", cli.path );
     });
-    
-    app.USE( express::http::ssr( "build" ) );
+
+    app.USE( express::http::file( "build" ) );
 
     app.listen( "0.0.0.0", 8000, []( ... ){
         console::log( "-> http://localhost:8000" );

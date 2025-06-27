@@ -1,6 +1,6 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t button() {
         auto app = express::http::add();
@@ -9,23 +9,44 @@ namespace uk {
 
             cli.write( _STRING_(
 
-                .uk-button:hover  { opacity: 80% !important; }
+                .uk-button:hover  { opacity: 90% !important; }
 
                 .uk-button:active { opacity: 60% !important; }
+
+                .uk-button-icon {
+                    background-color: var(--none);
+                    border: 1px solid var(--none);
+                    border-color: var(--none);
+                    -webkit-appearance: none;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    border-radius: 5px;
+                    user-select: none;
+                    font-weight: 600;
+                    cursor: pointer;
+                    font-size: 16px;
+                    color: inherit;
+                    display: flex;
+                    padding: 10px;
+                }
 
                 .uk-button {
                     background-color: var(--none);
                     border: 1px solid var(--none);
                     text-transform: capitalize;
                     border-color: var(--none);
-                    border-radius: 20px;
+                    -webkit-appearance: none;
+                    justify-content: center;
                     align-items: center;
                     text-align: center;
+                    border-radius: 5px;
+                    padding: 6px 10px;
+                    user-select: none;
                     font-weight: 600;
                     cursor: pointer;
                     font-size: 16px;
                     color: inherit;
-                    padding: 10px;
                     display: flex;
                     gap: 3px;
                 }
@@ -33,8 +54,8 @@ namespace uk {
     /*.........................................................................*/
 
                 .uk-button-text::before {
+                    border-bottom: 1px solid var(--neutral);
                     transition: right 0.3s ease-out;
-                    border-bottom: 1px solid #222;
                     position: absolute;
                     content: "";
                     right: 100%;
@@ -70,46 +91,55 @@ namespace uk {
                 { "primary",   "light" },
                 { "secondary", "light" },
                 { "success",   "dark"  },
-                { "warning",   "light" },
+                { "warning",   "dark"  },
                 { "danger",    "light" },
                 { "mute",      "dark"  },
                 { "light",     "dark"  },
-                { "dark",      "light" }
+                { "dark",      "light" },
+                { "neutral",   "light" }
             }).data() ){
                 cli.write( regex::format( _STRING_(
-                    .uk-button-${0}-outline { 
-                        background: rgba( from var(--${0}) r g b / 10% );
-                        color: var(--${0}) !important; 
+                    .uk-button-text-${0}::before {
+                        border-color: var(--${0}) !important;
+                    }
+                    .uk-button-${0} {
+                        background-color: var(--${0});
+                        color: var(--${1}) !important;
+                    }
+                    .uk-button-{0}-opaque {
+                        background-color: rgb( from var(--${0}) r g b / 30% );
+                        border: 1px solid rgb( from var(--${0}) r g b / 50% );
+                    }
+                    .uk-button-${0}-outline {
+                        background: var(--none) !important;
+                        color: var(--${0}) !important;
                         border-color: var(--${0});
                     }
+                    .uk-button-hover-${0}:hover {
+                        background-color: var(--${0}) !important;
+                        color: var(--${1}) !important;
+                        border-color: var(--${0});
+                        opacity: 100% !important;
+                    }
                     .uk-button-hover-${0}-outline:hover {
-                        background: rgba( from var(--${0}) r g b / 10% );
-                        color: var(--${0}) !important; 
+                        background: var(--none) !important;
+                        color: var(--${0}) !important;
+                        border-color: var(--${0});
+                        opacity: 100% !important;
+                    }
+                    .uk-button-hover-${0}-opaque:hover {
+                        background-color: rgb( from var(--${0}) r g b / 30% );
+                        border: 1px solid rgb( from var(--${0}) r g b / 50% );
+                    }
+                    .uk-button-active-${0}:active {
+                        background-color: var(--${0}) !important;
+                        color: var(--${1}) !important;
                         border-color: var(--${0});
                         opacity: 100% !important;
                     }
                     .uk-button-active-${0}-outline:active {
-                        background: rgba( from var(--${0}) r g b / 10% );
-                        color: var(--${0}) !important; 
-                        border-color: var(--${0});
-                        opacity: 100% !important;
-                    }
-                    .uk-button-text-${0}::before {
-                        border-color: var(--${0}) !important;
-                    }
-                    .uk-button-${0} { 
-                        background-color: var(--${0}); 
-                        color: var(--${1}) !important; 
-                    }
-                    .uk-button-hover-${0}:hover { 
-                        background-color: var(--${0}); 
-                        color: var(--${1}) !important; 
-                        border-color: var(--${0});
-                        opacity: 100% !important;
-                    }
-                    .uk-button-active-${0}:active { 
-                        background-color: var(--${0}); 
-                        color: var(--${1}) !important; 
+                        background: var(--none) !important;
+                        color: var(--${0}) !important;
                         border-color: var(--${0});
                         opacity: 100% !important;
                     }

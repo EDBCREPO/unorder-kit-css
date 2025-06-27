@@ -9,43 +9,24 @@ namespace uk {
 
             cli.write( _STRING_(
 
-                .uk-dropdown { position: relative; z-index: 1000;  }
-
-                .uk-dropdown:hover>ul, .uk-dropdown>ul:hover {
-                    transform: translateX(-120%) translateY(0%);
-                    background-color: var(--secondary);
-                    padding: 10px; margin: 0px;
-                    flex-direction: column;
-                    color: var(--light);
-                    border-radius: 5px;
-                    position: absolute;
-                    left:50%; top:-6px;
-                    list-style: none;
-                    flex-wrap: wrap;
-                    display: flex;
+                .uk-dropdown-hover:hover>[toggle], .uk-dropdown:has(:checked)>[toggle], .uk-dropdown>[toggle]:hover {
+                    position: absolute; flex-direction: column; display: flex;
+                    padding: 6px 10px; margin: 0px; width: 100%; z-index: 1;
+                    color: inherit; background-color: inherit;
+                    left: 0; top:100%; list-style: none;
+                    border: inherit; user-select: none;
                 }
 
-                .uk-dropdown>ul { display: none; }
+                [class*="uk-dropdown"]>[toggle], .uk-dropdown>input                      { display: none; }
+
+                .uk-dropdown-top:hover>[toggle],    .uk-dropdown-top>[toggle]:hover      { left:0; top:unset; bottom:100%; right:unset; }
+                .uk-dropdown-bottom:hover>[toggle], .uk-dropdown-bottom>[toggle]:hover   { left:0; top:100%; bottom:unset; right:unset; }
+                .uk-dropdown-right:hover>[toggle],  .uk-dropdown-right>[toggle]:hover    { left:unset; top:unset; bottom:unset; right:100%; transform:translate( 0px, -50% ); }
+                .uk-dropdown-left:hover>[toggle],   .uk-dropdown-left>[toggle]:hover     { left:100%; top:unset; bottom:unset; right:unset; transform:translate( 0px, -50% ); }
+                
+                [class*="uk-dropdown"]                                                   { position: relative; transition: none; padding: 6px 10px; cursor: pointer; user-select: none; }
 
             ));
-
-            for( auto& color : map_t<string_t,string_t>({
-                { "primary",   "light" },
-                { "secondary", "light" },
-                { "success",   "dark"  },
-                { "warning",   "light" },
-                { "danger",    "light" },
-                { "mute",      "dark"  },
-                { "light",     "dark"  },
-                { "dark",      "light" }
-            }).data() ){
-                cli.write( regex::format( _STRING_(
-                    .uk-dropdown-${0}:hover>ul, .uk-dropdown-${0}>ul:hover { 
-                        background-color: var(--${0});
-                        color: var(--${1});
-                    }
-                ), color.first, color.second ));
-            }
 
         });
 

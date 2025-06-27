@@ -15,7 +15,8 @@ namespace uk {
                 { "danger",    "light" },
                 { "mute",      "dark"  },
                 { "light",     "dark"  },
-                { "dark",      "light" }
+                { "dark",      "light" },
+                { "neutral",   "light" }
             }).data() ){
                 cli.write( regex::format( _STRING_(
                     .uk-tooltip-${0}-outline { 
@@ -39,7 +40,7 @@ namespace uk {
                     color: var(--light);
                     text-align: center;
                     position: absolute;
-                    background: #222;
+                    background: var(--neutral);
                     padding:4px 2px;
                     font-size: 12px;
                     min-width: 80px;

@@ -11,11 +11,11 @@ namespace uk {
                 { "none",    "0px"  },
                 { "2xsmall", "2px"  },
                 { "xsmall",  "5px"  },
-                { "small",   "10px"  },
-                { "medium",  "20px" },
-                { "large",   "25px" },
-                { "xlarge",  "30px" },
-                { "2xlarge", "35px" }
+                { "small",   "10px" },
+                { "medium",  "15px" },
+                { "large",   "20px" },
+                { "xlarge",  "25px" },
+                { "2xlarge", "30px" }
             }).data() ){
                 cli.write( regex::format( _STRING_(
                    .uk-rounded-hover-${0}:hover { border-radius: ${1}; }
@@ -24,29 +24,39 @@ namespace uk {
             }
 
             cli.write( _STRING_ ( 
+
+                .uk-rounded-hover-phill:hover { border-radius: 500px; }
+                .uk-rounded-phill             { border-radius: 500px; }
+
+                .uk-rounded-hover:hover       { border-radius: 5px;  } 
+                .uk-rounded                   { border-radius: 5px;  }
                 
                 .uk-rounded-remove-top { 
-                    border-top-left-radius:  0px; 
-                    border-top-right-radius: 0px; 
+                    border-top-left-radius:    0px !important; 
+                    border-top-right-radius:   0px !important; 
                 }
                 
                 .uk-rounded-remove-left { 
-                    border-top-left-radius:    0px; 
-                    border-bottom-left-radius: 0px; 
+                    border-top-left-radius:    0px !important; 
+                    border-bottom-left-radius: 0px !important; 
                 }
                 
                 .uk-rounded-remove-right { 
-                    border-top-right-radius:    0px; 
-                    border-bottom-right-radius: 0px; 
+                    border-top-right-radius:    0px !important; 
+                    border-bottom-right-radius: 0px !important; 
                 }
                 
                 .uk-rounded-remove-bottom { 
-                    border-bottom-left-radius:  0px; 
-                    border-bottom-right-radius: 0px; 
+                    border-bottom-left-radius:  0px !important; 
+                    border-bottom-right-radius: 0px !important; 
                 }
-
-                .uk-rounded-hover:hover { border-radius: 15px; } 
-                .uk-rounded             { border-radius: 15px; } 
+                
+                .uk-rounded-remove { 
+                    border-top-left-radius:     0px !important; 
+                    border-top-right-radius:    0px !important; 
+                    border-bottom-left-radius:  0px !important; 
+                    border-bottom-right-radius: 0px !important; 
+                }
                 
             ));
 

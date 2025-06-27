@@ -1,32 +1,32 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t flex() {
         auto app = express::http::add();
 
         app.ALL([=]( express_http_t cli ){ cli.send();
 
-            for( auto& size: map_t<string_t,int>({ 
+            for( auto& size: map_t<string_t,int>({
                 { nullptr,   0 },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){
                     cli.write( regex::format( _STRING_(
-                       @media( min-width: ${0}px ) {
+                       @media( max-width: ${0}px ) {
                     ), size.second ));
                 }
 
                 cli.write( regex::format( _STRING_(
+                    .uk-flex${0}         { align-content: normal; display: flex; }
                     .uk-flex-inline${0}  { display: inline-flex; }
-                    .uk-flex-initial${0} { flex: initial; }
-                    .uk-flex-none${0}    { flex: none; }
-                    .uk-flex-auto${0}    { flex: auto; }
-                    .uk-flex${0}         { display: flex; }
+                    .uk-flex-initial${0} { flex:    initial;     }
+                    .uk-flex-none${0}    { flex:    none;        }
+                    .uk-flex-auto${0}    { flex:    auto;        }
                 ), size.first ));
 
                 for( auto& item: map_t<string_t,string_t>({
@@ -37,8 +37,8 @@ namespace uk {
                     { "right",   "flex-end"      }
                 }).data() ){
                     cli.write( regex::format( _STRING_(
-                    .uk-flex-${0}${2} { justify-content: ${1}; }
-                    ), item.first, item.second, size.first )); 
+                       .uk-flex-${0}${2} { justify-content: ${1}; }
+                    ), item.first, item.second, size.first ));
                 }
 
                 for( auto& item: map_t<string_t,string_t>({
@@ -49,16 +49,16 @@ namespace uk {
                 }).data() ){
                     cli.write( regex::format( _STRING_(
                        .uk-flex-${0}${2} { align-items: ${1}; }
-                    ), item.first, item.second, size.first )); 
+                    ), item.first, item.second, size.first ));
                 }
 
                 for( auto& item: ptr_t<string_t>({
                     "column-reverse", "column",
-                    "row", "row-reverse"
+                    "row-reverse"   , "row"
                 })){
                     cli.write( regex::format( _STRING_(
                        .uk-flex-${0}${1} { flex-direction: ${0}; }
-                    ), item, size.first )); 
+                    ), item, size.first ));
                 }
 
                 for( auto& item: ptr_t<string_t>({
@@ -66,7 +66,7 @@ namespace uk {
                 })){
                     cli.write( regex::format( _STRING_(
                        .uk-flex-${0}${1} { flex-wrap: ${0}; }
-                    ), item, size.first )); 
+                    ), item, size.first ));
                 }
 
                 for( auto& item: map_t<string_t,string_t>({
@@ -79,11 +79,11 @@ namespace uk {
                 }).data() ){
                     cli.write( regex::format( _STRING_(
                        .uk-flex-wrap-${0}${2} { align-content: ${1}; }
-                    ), item.first, item.second, size.first )); 
+                    ), item.first, item.second, size.first ));
                 }
 
                 if( size.first != nullptr ){ cli.write( "}" ); }
-            
+
             }
 
         });

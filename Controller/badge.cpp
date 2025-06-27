@@ -1,6 +1,6 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t badge() {
         auto app = express::http::add();
@@ -11,31 +11,34 @@ namespace uk {
                 { "primary",   "light" },
                 { "secondary", "light" },
                 { "success",   "dark"  },
-                { "warning",   "light" },
+                { "warning",   "dark"  },
                 { "danger",    "light" },
                 { "mute",      "dark"  },
                 { "light",     "dark"  },
-                { "dark",      "light" }
+                { "dark",      "light" },
+                { "neutral",   "light" },
             }).data() ){
                 cli.write( regex::format( _STRING_(
-                    .uk-badge-${0}-outline { 
-                        background: rgba( from var(--${0}) r g b / 10% );
+                    .uk-badge-${0}-outline {
                         border-color: var(--${0}) !important;
-                        color: var(--${0}) !important;  
-                    } 
-                    .uk-badge-${0} { 
-                        color: var(--${1}) !important; 
-                        background-color: var(--${0}); 
+                        color: var(--${0}) !important;
+                    }
+                    .uk-badge-${0} {
+                        color: var(--${1}) !important;
+                        background-color: var(--${0});
                     }
                 ), color.first, color.second ));
             }
 
             cli.write( _STRING_(
-                .uk-badge { 
+                .uk-badge {
                     border: 1px solid var(--none);
-                    border-radius: 30px;
+                    align-content: center;
+                    border-radius: 5px;
                     text-align: center;
-                    font-weight: 400;
+                    font-weight: bold;
+                    padding: 0px 10px;
+                    user-select: none;
                     width: auto;
                 }
             ));

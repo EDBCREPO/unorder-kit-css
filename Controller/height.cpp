@@ -1,30 +1,30 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t height() {
         auto app = express::http::add();
 
         app.ALL([=]( express_http_t cli ){ cli.send();
 
-            for( auto& size: map_t<string_t,int>({ 
-                { nullptr, 0   },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+            for( auto& size: map_t<string_t,int>({
+                { nullptr,   0 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){
                     cli.write( regex::format( _STRING_(
-                       @media( max-height: ${0}px ) {
+                       @media( max-width: ${0}px ) {
                     ), size.second ));
                 }
 
-                for( auto x=12; x>=1; x-- ){ for( auto y=12; y>=1; y-- ){ if( x >= y ){ continue; }
+                for( auto x=1; x<=12; x++ ){ for( auto y=1; y<=12; y++ ){ if( x >= y ){ continue; }
                     cli.write( regex::format( _STRING_(
-                       .uk-child-height-${0}-${1}${2}>:not([class*='uk-height']){ height: calc( ${0}00% / ${1} - 1.2% ); }
-                       .uk-height-${0}-${1}${2}                                 { height: calc( ${0}00% / ${1} - 1.2% ); }
+                       .uk-vh-${0}-${1}${2}     { min-height: calc( 100vh*${0}/${1} ); max-height: calc( 100vh*${0}/${1} ); }
+                       .uk-height-${0}-${1}${2} { min-height: calc( ${0}00%   /${1} ); max-height: calc( ${0}00%   /${1} ); }
                     ), x, y, size.first ));
                 }}
 
@@ -36,20 +36,43 @@ namespace uk {
                 }).data() ){
                     cli.write( regex::format( _STRING_ (
                        .uk-height-${0}${2}     { min-height:${1}; }
-                       .uk-max-height-${0}${2} { max-height:${1}; }
                     ), item.first, item.second, size.first ));
                 }
 
                 cli.write( regex::format( _STRING_(
+                   .uk-height-expand${0} { min-height: 100vh; }
+                   .uk-height-fill${0}   { min-height: 100%; }
+                   .uk-height-1-1${0}    { min-height: 100%; }
+                ), size.first ));
 
-                   .uk-child-height-expand${0}>:not([class*='uk-height']){ height: 100vh; }
-                   .uk-height-expand${0}                                 { height: 100vh; }
+                if( size.first != nullptr ){ cli.write( "}" ); }
 
-                   .uk-child-height-auto${0}>:not([class*='uk-height']){ flex: initial; }
-                   .uk-height-auto${0}                                 { flex: initial; }
+            }
 
-                   .uk-child-height-fill${0}>:not([class*='uk-height']){ height: 100%; }
-                   .uk-height-fill${0}                                 { height: 100%; }
+            for( auto& size: map_t<string_t,int>({
+                { nullptr,   0 },
+                { "\\@2l",1600 },
+                { "\\@l", 1200 },
+                { "\\@m",  960 },
+                { "\\@s",  640 }
+            }).data() ){
+
+                if( size.first != nullptr ){
+                    cli.write( regex::format( _STRING_(
+                       @media( max-width: ${0}px ) {
+                    ), size.second ));
+                }
+
+                for( auto x=1; x<=12; x++ ){ for( auto y=1; y<=12; y++ ){ if( x >= y ){ continue; }
+                    cli.write( regex::format( _STRING_(
+                       .uk-child-height-${0}-${1}${2}>:not([class*='uk-height']){ min-height: calc( ${0}00% / ${1} );  max-height: calc( ${0}00% / ${1} );  }
+                    ), x, y, size.first ));
+                }}
+
+                cli.write( regex::format( _STRING_(
+                   .uk-child-height-expand${0}>:not([class*='uk-height']){ min-height: 100vh; }
+                   .uk-child-height-fill${0}>:not([class*='uk-height'])  { min-height: 100%; }
+                   .uk-child-height-1-1${0}>:not([class*='uk-height'])   { min-height: 100%; }
 
                 ), size.first ));
 
