@@ -9,6 +9,38 @@ namespace uk {
             cli.render( _STRING_ (
 
                 @font-face {
+                    font-family: "emoji"; src: local("Segoe UI")        , local("Segoe UI Symbol")  , 
+                                               local("Segoe UI Emoji")  , local("Apple Color Emoji"),
+                                               local("Noto Color Emoji"), url(./emoji.ttf); unicode-range:
+                    U+00A9, U+00AE,                 /* Copyright, Registered Sign */
+                    U+200D,                         /* Zero Width Joiner */
+                    U+20E3,                         /* Combining Enclosing Keycap */
+                    U+2122, U+2139,                 /* TM, Information */
+                    U+2194-2199, U+21A9-21AA,       /* Arrows */
+                    U+2300-23FF,                    /* Various Technical, Control Pictures, Misc. Technical (incl. watch, hourglass, play buttons) */
+                    U+24C2,                         /* Circled M */
+                    U+25AA-25B6, U+25C0-25FF,       /* Geometric Shapes (incl. black/white squares, triangles, circles) */
+                    U+2600-27BF,                    /* Miscellaneous Symbols, Dingbats (huge range, covers hearts, stars, checkmarks, weather, religious, etc.) */
+                    U+2934-2935, U+2B05-2B07, U+2B1B-2B1C, U+2B50, U+2B55, /* More arrows, black/white large squares, stars, circle */
+                    U+3030, U+303D,                 /* Wavy Dash, Part Alternation Mark */
+                    U+3297, U+3299,                 /* Circled Japanese characters */
+                    U+1F000-1F02F,                  /* Mahjong Tiles, Domino Tiles */
+                    U+1F0A0-1F0FF,                  /* Playing Cards */
+                    U+1F100-1F1FF,                  /* Enclosed Alphanumerics, Regional Indicators (flags) */
+                    U+1F200-1F2FF,                  /* Enclosed Ideographic Supplement, CJK Compatibility Ideographs */
+                    U+1F300-1F64F,                  /* Miscellaneous Symbols and Pictographs, Emoticons (most faces, animals, food, sports, activities) */
+                    U+1F680-1F6FF,                  /* Transport and Map Symbols (cars, trains, buildings, signs) */
+                    U+1F700-1F77F,                  /* Alchemical Symbols */
+                    U+1F780-1F7FF,                  /* Geometric Shapes Extended */
+                    U+1F800-1F8FF,                  /* Supplemental Arrows-C */
+                    U+1F900-1F9FF,                  /* Supplemental Symbols and Pictographs (more faces, skin tones, newer animals, food, objects) */
+                    U+1FA00-1FA6F,                  /* Chess Symbols, Symbols and Pictographs Extended-A (incl. Melting Face) */
+                    U+1FA70-1FAFF,                  /* Symbols and Pictographs Extended-B (incl. Bandage) */
+                    U+1FB00-1FBFF,                  /* Symbols and Pictographs Extended-C (for future additions) */
+                    U+FE0F;                         /* Emoji Variation Selector */
+                }
+
+                @font-face {
                     font-family: 'Material Symbols Rounded';
                     src: url(./icon.woff2) format('woff2');
                     font-style: normal;
@@ -33,7 +65,7 @@ namespace uk {
                 /*.........................................................................*/
 
                 html {
-                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                    font-family: "emoji", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
                     -webkit-text-size-adjust: 100%; background: var(--light); font-weight: normal; color: var(--dark); line-height: 1.5; font-size: 16px;
                 }
 

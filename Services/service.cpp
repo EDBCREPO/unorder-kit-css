@@ -7,7 +7,7 @@
 
 using namespace nodepp;
 
-#include "Controller/controller.cpp"
+#include "../Controller/controller.cpp"
 
 void compile() {
 
@@ -17,7 +17,7 @@ void compile() {
         console::log( "->", cli.path );
     }); uk::controller( app );
 
-    app.USE( express::http::file( "View" ) );
+    app.USE( express::http::file( "./View" ) );
 
     app.listen( "0.0.0.0", 8000, []( ... ){
         console::log( "-> http://localhost:8000" );
@@ -27,7 +27,7 @@ void compile() {
         args.url    = "http://localhost:8000/uikit.css";
 
         http::fetch( args ).then([=]( http_t cli ){
-            auto file = fs::writable("./build/uikit.css");
+            auto file = fs::writable("./Build/uikit.css");
             cli.onDrain([=](){ process::exit(); });
             stream::pipe( cli, file );
         }).fail([=]( ... ){
@@ -46,7 +46,7 @@ void test() {
         console::log( "->", cli.path );
     });
 
-    app.USE( express::http::file( "build" ) );
+    app.USE( express::http::file( "./Build" ) );
 
     app.listen( "0.0.0.0", 8000, []( ... ){
         console::log( "-> http://localhost:8000" );
