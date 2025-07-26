@@ -5,7 +5,7 @@ namespace uk {
     express_tcp_t tooltip() {
         auto app = express::http::add();
 
-        app.ALL([=]( express_http_t cli ){ cli.send();
+        app.ALL([=]( express_http_t cli ){ cli.send(); string_t data;
 
             for( auto& color : map_t<string_t,string_t>({
                 { "primary",   "light" },
@@ -15,9 +15,10 @@ namespace uk {
                 { "danger",    "light" },
                 { "mute",      "dark"  },
                 { "light",     "dark"  },
-                { "dark",      "light" }
+                { "dark",      "light" },
+                { "neutral",   "light" }
             }).data() ){
-                cli.write( regex::format( _STRING_(
+                data+=( regex::format( _STRING_(
                     .uk-tooltip-${0}-outline { 
                         border-color: var(--${0}); 
                         color: var(--${0}); 
@@ -29,7 +30,7 @@ namespace uk {
                 ), color.first, color.second ));
             }
 
-            cli.write( _STRING_(
+            data+=( _STRING_(
                 .uk-tooltip { position: relative; z-index: 1000; }
 
                 .uk-tooltip:hover::after {
@@ -39,7 +40,7 @@ namespace uk {
                     color: var(--light);
                     text-align: center;
                     position: absolute;
-                    background: #222;
+                    background: var(--neutral);
                     padding:4px 2px;
                     font-size: 12px;
                     min-width: 80px;
@@ -71,6 +72,8 @@ namespace uk {
                 }
 
             ));
+
+            cli.write( data );
 
         });
 

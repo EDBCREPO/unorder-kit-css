@@ -5,7 +5,7 @@ namespace uk {
     express_tcp_t transform() {
         auto app = express::http::add();
 
-        app.ALL([=]( express_http_t cli ){ cli.send();
+        app.ALL([=]( express_http_t cli ){ cli.send(); string_t data;
 
             for( auto& item: map_t<string_t,string_t>({
                 { "center",        "translate(-50%, -50%)" },
@@ -18,10 +18,12 @@ namespace uk {
                 { "top-center",    "50% 0"     },
                 { "top-left",      "0 0"       }
             }).data() ){
-                cli.write( regex::format( _STRING_(
+                data+=( regex::format( _STRING_(
                    .uk-transform-origin-${0} { transform-origin: ${1}; }
                 ), item.first, item.second )); 
             }
+
+            cli.write( data );
 
         });
 

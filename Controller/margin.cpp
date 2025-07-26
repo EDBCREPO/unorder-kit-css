@@ -1,22 +1,22 @@
 #pragma once
 
-namespace uk { 
+namespace uk {
 
     express_tcp_t margin() {
         auto app = express::http::add();
 
-        app.ALL([=]( express_http_t cli ){ cli.send();
+        app.ALL([=]( express_http_t cli ){ cli.send(); string_t data;
 
-            for( auto& size: map_t<string_t,int>({ 
+            for( auto& size: map_t<string_t,int>({
                 { nullptr,   0 },
-                { "\\@s",  640 },
-                { "\\@m",  960 },
+                { "\\@2l",1600 },
                 { "\\@l", 1200 },
-                { "\\@2l",1600 }
+                { "\\@m",  960 },
+                { "\\@s",  640 }
             }).data() ){
 
                 if( size.first != nullptr ){
-                    cli.write( regex::format( _STRING_(
+                    data+=( regex::format( _STRING_(
                        @media( min-width: ${0}px ) {
                     ), size.second ));
                 }
@@ -26,42 +26,51 @@ namespace uk {
                     { "2xsmall", "5px"  },
                     { "xsmall",  "10px" },
                     { "small",   "15px" },
-                    { "medium",  "25px" },
-                    { "large",   "30px" },
-                    { "xlarge",  "35px" },
-                    { "2xlarge", "40px" }
+                    { "medium",  "20px" },
+                    { "large",   "25px" },
+                    { "xlarge",  "30px" },
+                    { "2xlarge", "35px" }
                 }).data() ){
-                    cli.write( regex::format( _STRING_ (
-                       .uk-child-margin-${0}${2}>:not([class*="uk-margin"]){ margin:${1}; } 
-                       .uk-margin-${0}${2}                                  { margin:${1}; }
+                    data+=( regex::format( _STRING_ (
+                       .uk-child-margin-${0}${2}>:not([class*="uk-margin"]){ margin:${1} !important; }
+                       .uk-margin-${0}${2}                                 { margin:${1} !important; }
                     ), item.first, item.second, size.first ));
                 }
 
-                cli.write( regex::format( _STRING_ (
+                data+=( regex::format( _STRING_ (
 
-                    .uk-margin-remove-bottom${0} { margin-bottom: 0px; }
-                    .uk-margin-remove-top${0}    { margin-top:    0px; }
-                    .uk-margin-remove-left${0}   { margin-left:   0px; }
-                    .uk-margin-remove-right${0}  { margin-right:  0px; }
+                    .uk-child-margin${0}>:not([class*="uk-margin"]){ margin:15px; }
+                    .uk-margin${0}                                 { margin:15px; }
+
+                    .uk-margin-remove-bottom${0} { margin-bottom: 0px !important; }
+                    .uk-margin-remove-top${0}    { margin-top:    0px !important; }
+                    .uk-margin-remove-left${0}   { margin-left:   0px !important; }
+                    .uk-margin-remove-right${0}  { margin-right:  0px !important; }
 
                     .uk-margin-remove-horizontal${0} {
-                        margin-left:  0px;
-                        margin-right: 0px;
+                        margin-left:  0px !important;
+                        margin-right: 0px !important;
                     }
 
                     .uk-margin-remove-vertical${0} {
-                        margin-top:    0px;
-                        margin-bottom: 0px;
+                        margin-top:    0px !important;
+                        margin-bottom: 0px !important;
                     }
-                    
-                    .uk-child-margin${0}>:not([class*="uk-margin"]){ margin:20px; }
-                    .uk-margin${0}                                  { margin:20px; }
+
+                    .uk-margin-remove${0} {
+                        margin-left:   0px !important;
+                        margin-right:  0px !important;
+                        margin-top:    0px !important;
+                        margin-bottom: 0px !important;
+                    }
 
                 ), size.first ));
 
-                if( size.first != nullptr ){ cli.write( "}" ); }
+                if( size.first != nullptr ){ data+=( "}" ); }
 
             }
+
+            cli.write( data );
 
         });
 

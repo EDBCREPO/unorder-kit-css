@@ -1,0 +1,36 @@
+{"list":[
+
+    "http://localhost:8000/root",
+    "http://localhost:8000/animation",
+
+    "http://localhost:8000/icon",
+    "http://localhost:8000/list",
+    "http://localhost:8000/text",
+    "http://localhost:8000/badge",
+    "http://localhost:8000/input",
+    "http://localhost:8000/button",
+    "http://localhost:8000/scroll",
+    "http://localhost:8000/tooltip",
+    "http://localhost:8000/dropdown",
+    "http://localhost:8000/selector",
+    "http://localhost:8000/background",
+
+    "http://localhost:8000/gap",
+    "http://localhost:8000/flex",
+    "http://localhost:8000/blend",
+    "http://localhost:8000/index",
+    "http://localhost:8000/border",
+    "http://localhost:8000/margin",
+    "http://localhost:8000/header",
+    "http://localhost:8000/toggle",
+    "http://localhost:8000/padding",
+    "http://localhost:8000/opacity",
+    "http://localhost:8000/rounded",
+    "http://localhost:8000/overflow",
+    "http://localhost:8000/position",
+    "http://localhost:8000/visibility",
+
+    "http://localhost:8000/width",
+    "http://localhost:8000/height"
+
+]}
