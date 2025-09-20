@@ -26,10 +26,10 @@ namespace uk {
                     { "2xsmall", "5px"  },
                     { "xsmall",  "10px" },
                     { "small",   "15px" },
-                    { "medium",  "20px" },
-                    { "large",   "25px" },
-                    { "xlarge",  "30px" },
-                    { "2xlarge", "35px" }
+                    { "medium",  "25px" },
+                    { "large",   "30px" },
+                    { "xlarge",  "35px" },
+                    { "2xlarge", "40px" }
                 }).data() ){
                     data+=( regex::format( _STRING_ (
                        .uk-child-padding-${0}${2}>:not([class*="uk-padding"]){ padding:${1} !important; }
@@ -39,8 +39,8 @@ namespace uk {
 
                 data+=( regex::format( _STRING_ (
 
-                    .uk-child-padding${0}>:not([class*="uk-padding"]){ padding:15px; }
-                    .uk-padding${0}                                  { padding:15px; }
+                    .uk-child-padding${0}>:not([class*="uk-padding"]){ padding:20px; }
+                    .uk-padding${0}                                  { padding:20px; }
 
                     .uk-padding-remove-bottom${0}  { padding-bottom: 0px !important; }
                     .uk-padding-remove-top${0}     { padding-top:    0px !important; }

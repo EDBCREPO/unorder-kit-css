@@ -10,12 +10,12 @@ namespace uk {
             for( auto& item : map_t<string_t,string_t>({
                 { "none",    "0px"  },
                 { "2xsmall", "2px"  },
-                { "xsmall",  "5px"  },
+                { "xsmall",  "3px"  },
                 { "small",   "10px" },
-                { "medium",  "15px" },
-                { "large",   "20px" },
-                { "xlarge",  "25px" },
-                { "2xlarge", "30px" }
+                { "medium",  "20px" },
+                { "large",   "25px" },
+                { "xlarge",  "30px" },
+                { "2xlarge", "35px" }
             }).data() ){
                 data+=( regex::format( _STRING_(
                    .uk-rounded-hover-${0}:hover { border-radius: ${1}; }

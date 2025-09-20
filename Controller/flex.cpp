@@ -23,6 +23,8 @@ namespace uk {
 
                 data+=( regex::format( _STRING_(
                     .uk-flex${0}         { align-content: normal; display: flex; }
+                    .uk-flex-shrink${0}  { flex-grow: 0; flex-shrink: 1  }
+                    .uk-flex-grow${0}    { flex-grow: 1; flex-shrink: 0; }
                     .uk-flex-inline${0}  { display: inline-flex; }
                     .uk-flex-initial${0} { flex:    initial;     }
                     .uk-flex-none${0}    { flex:    none;        }

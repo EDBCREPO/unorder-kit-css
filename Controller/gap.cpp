@@ -26,18 +26,18 @@ namespace uk {
                     { "2xsmall", "5px"  },
                     { "xsmall",  "10px" },
                     { "small",   "15px" },
-                    { "medium",  "20px" },
-                    { "large",   "35px" },
-                    { "xlarge",  "30px" },
-                    { "2xlarge", "35px" }
+                    { "medium",  "25px" },
+                    { "large",   "30px" },
+                    { "xlarge",  "35px" },
+                    { "2xlarge", "40px" }
                 }).data() ){ data+=( regex::format( _STRING_(
                     .uk-child-gap-${0}${2}>:not([class*="uk-gap"]){ gap:${1}; }
                     .uk-gap-${0}${2}                              { gap:${1}; }
                 ), item.first, item.second, size.first )); }
 
                 data+=( regex::format( _STRING_(
-                   .uk-child-gap${0}>:not([class*="uk-gap"]){ gap:15px; }
-                   .uk-gap${0}                              { gap:15px; }
+                   .uk-child-gap${0}>:not([class*="uk-gap"]){ gap:20px; }
+                   .uk-gap${0}                              { gap:20px; }
                 ), size.first ));
 
                 if( size.first != nullptr ){ data+=( "}" ); }
